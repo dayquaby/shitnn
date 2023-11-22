@@ -11,11 +11,13 @@ weights is 2-d and inputs is 1-d, so np.dot is a sum product over the last axis 
 
 [[0.2, 0.8, -0.5, 1]
 
- [0.5, -0.91, 0.26, -0.5]           [1, 2, 3, 2.5]
+ [0.5, -0.91, 0.26, -0.5]
 
- [-0.26, -0.27, 0.17, 0.87]]
+ [-0.26, -0.27, 0.17, 0.87]] (size (3,4))
 
-3,4                                 4,
+ multiplied by
+
+ [1, 2, 3, 2.5] (size (4,))
 
 4 is the last axis, dot product of each of the 3 4by4 vectors is calculated and returned as a list
 
