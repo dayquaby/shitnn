@@ -33,3 +33,37 @@ np.dot(rv, cv)
 np.matmul(rv, cv)
 
 rv @ cv
+
+## example forward pass with weights and biases written by hand
+
+inputs contains multiple samples to be ran at once, each row is a sample
+
+inputs = np.array([
+    [1.0, 2.0, 3.0, 2.5],
+    [2.0, 5.0, -1.0, 2.0],
+    [-1.5, 2.7, 3.3, -0.8],
+])
+
+weights contains weight values corresponding to each exit node, is of size (n_neurons, n_inputs) - each row is for one neuron on next layer
+
+weights = np.array([
+    [0.2, 0.8, -0.5, 1.0],
+    [0.5, -0.91, 0.26, -0.5],
+    [-0.26, -0.27, 0.17, 0.87],
+])
+weights2 = np.array([
+    [0.1, -0.14, 0.5],
+    [-0.5, 0.12, -0.33],
+    [-0.44, 0.73, -0.13],
+])
+
+biases contain bias for each neuron in the layer, stays the same across different samples and weights
+
+biases = [2.0, 3.0, 0.5]
+biases2 = [-1, 2, -0.5]
+
+this is a 2-D vector adding a 1-D vector, which means the biases vector gets added to each row of the 2-D vector (broadcasting)
+for example: adding a (3,3) matrix to a (1,3) array makes the array automatically broadcast to fit the size of the matrix (it becomes a (3,3) matrix with all the rows being the exact same)
+
+layer1_outputs = inputs @ weights.T + biases
+layer2_outputs = layer1_outputs @ weights2.T + biases2
