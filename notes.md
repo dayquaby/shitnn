@@ -72,3 +72,13 @@ for example: adding a (3,3) matrix to a (1,3) array makes the array automaticall
 
 - layer1_outputs = inputs @ weights.T + biases
 - layer2_outputs = layer1_outputs @ weights2.T + biases2
+
+## finding the loss for categorical crossentropy
+
+one-hot encoding is a way to show the target values for the true prediction of a categorical neural network
+
+- for a nn that has 3 classes - dog, cat, and person, the one-hot encoding for 3 samples could look like this: [[0, 1, 0], [1, 0, 0], [0, 1, 0]], where each row describes a sample, and the index of the row that contains a 1 shows which of the 3 classes is the correct prediction for that sample (cat, dog, cat)
+
+scarce encoding is another way to show which class is the true prediction of a categorical neural network
+
+- instead of having either a 0 or 1 value for each output node, scarce encoding is just a 1-dimensional array of the correct indexes for each sample. for example, a scarce encoding of the above example would be [1, 0, 1]
