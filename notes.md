@@ -81,4 +81,14 @@ one-hot encoding is a way to show the target values for the true prediction of a
 
 scarce encoding is another way to show which class is the true prediction of a categorical neural network
 
-- instead of having either a 0 or 1 value for each output node, scarce encoding is just a 1-dimensional array of the correct indexes for each sample. for example, a scarce encoding of the above example would be [1, 0, 1]
+- instead of having either a 0 or 1 value for each output node, scarce encoding is just a 1-dimensional array of the correct indices for each sample. for example, a scarce encoding of the above example would be [1, 0, 1]
+
+## finding the accuracy of your model
+
+to find the accuracy of our predictions, we will use np.argmax(), which returns the indices of the max value along a specified axis
+
+- e.g.: np.argmax(matrix_of_predicted_softmaxes, axis=1) returns the indices of the max value for each row and stores them in an array
+
+- then we use np.mean() to find the accuracy of the model, which adds the results of comparing (==) corresponding indicies in the array created from np.argmax() and the sparse encoded true predictions and divides it by the total number of indicies
+
+- if the true predictions are in one-hot encoding, then we need to use np.argmax(true_predictions, axis=1) to convert it to sparse encoding
